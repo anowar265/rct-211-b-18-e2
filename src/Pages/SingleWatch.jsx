@@ -11,7 +11,6 @@ const SingleWatch = () => {
   useEffect(() => {
     axios.get(`/watches/${id}`).then((r) => setCurrent(r.data));
   }, []);
-  console.log(current);
 
   return (
     <div>
