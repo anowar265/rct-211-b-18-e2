@@ -8,11 +8,12 @@ import styled from "styled-components";
 const Watches = () => {
   const dispatch = useDispatch();
   const watches = useSelector((store) => store.app.watches);
+  const loginData = useSelector((store) => store.auth);
 
   useEffect(() => {
     dispatch(getWatchesData());
   }, []);
-
+  console.log(loginData);
   return (
     <div>
       <HomepageWrapper>
