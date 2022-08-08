@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 const WatchCard = ({ id, name, image, category }) => {
   return (
@@ -15,3 +16,8 @@ const WatchCard = ({ id, name, image, category }) => {
 };
 
 export default WatchCard;
+
+const WatchCardWrapper = styled.div`
+  width: 100%;
+  border: 1px solid black;
+`;

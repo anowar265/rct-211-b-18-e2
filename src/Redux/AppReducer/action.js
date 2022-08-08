@@ -20,10 +20,10 @@ export const getWatchesDataFailure = () => ({
   type: GET_WATCHES_DATA_FAILURE,
 });
 
-export const getWatchesData = () => (dispatch) => {
+export const getWatchesData = (params) => (dispatch) => {
   dispatch(getWatchesDataRequest());
   axios
-    .get("/watches")
+    .get("/watches", params)
     .then((r) => dispatch(getWatchesDataSuccess(r.data)))
     .catch((err) => dispatch(getWatchesDataFailure()));
 };
