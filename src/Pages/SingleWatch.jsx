@@ -1,14 +1,26 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 const SingleWatch = () => {
+  const { id } = useParams();
+  const [current, setCurrent] = useState({});
+
+  useEffect(() => {
+    axios.get(`/watches/${id}`).then((r) => setCurrent(r.data));
+  }, []);
+  console.log(current);
+
   return (
     <div>
       <h2>Watch name</h2>
       <div>
-        <img src="watch-image" alt="Cover Pic" />
+        <img src={current.image} alt="Cover Pic" />
       </div>
       <div>
-        <div>Watch Category</div>
+        <div>{current.category}</div>
       </div>
     </div>
   );
